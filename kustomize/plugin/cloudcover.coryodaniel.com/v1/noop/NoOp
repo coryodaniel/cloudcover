@@ -1,0 +1,18 @@
+#! /usr/bin/env ruby
+
+require 'yaml'
+
+$log_path = "/tmp/noop.log"
+File.delete($log_path) if File.exists?($log_path)
+
+def log(msg)
+  File.open($log_path, "a+") {|f| f.puts msg}
+end
+
+config = YAML.load(File.read(ARGV.shift))
+log(config)
+
+resources = YAML.load_stream($stdin.read)
+log(resources)
+
+puts YAML.dump_stream(*resources)

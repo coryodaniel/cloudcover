@@ -1,0 +1,6 @@
+apiVersion: cloudcover.coryodaniel.com/v1
+kind: NoOp
+metadata:
+  name: test
+spec:
+  foo: bar

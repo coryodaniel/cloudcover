@@ -1,0 +1,6 @@
+bases:
+  - ../../apps/fluentd/base
+  - ../../apps/elasticsearch/base
+
+transformers:
+  - noop.yaml

@@ -1,0 +1,3 @@
+varReference:
+  - path: spec/template/spec/containers/resources/requests/cpu
+    kind: DaemonSet

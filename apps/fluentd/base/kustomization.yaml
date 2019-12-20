@@ -1,0 +1,29 @@
+resources:
+  - daemonset.yaml
+
+configMapGenerator:
+  - name: fluentd-params
+    #behavior: merge
+    env: params.env
+generatorOptions:
+  disableNameSuffixHash: true
+
+vars:
+  - name: ELASTICSEARCH_HOST
+    objref:
+      kind: ConfigMap
+      name: fluentd-params
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.ELASTICSEARCH_HOST
+
+  - name: cpuRequests
+    objref:
+      kind: ConfigMap
+      name: fluentd-params
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.cpuRequests
+
+configurations:
+  - params.yaml

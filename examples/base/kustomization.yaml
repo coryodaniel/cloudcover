@@ -1,0 +1,9 @@
+bases:
+  - ../../build/base
+
+configMapGenerator:
+  - name: fluentd-params
+    behavior: merge
+    env: params.env
+generatorOptions:
+  disableNameSuffixHash: true
